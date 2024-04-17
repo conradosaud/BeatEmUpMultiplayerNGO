@@ -10,12 +10,14 @@ public class EnemyController : MonoBehaviour
 
     void Start()
     {
-        target = GameObject.FindWithTag("Player").transform;
+        target = GameObject.FindWithTag("Player")?.transform;
     }
 
     // Update is called once per frame
     void Update()
     {
+        if (target == null)
+            return;
         Vector2 movimento = Vector2.MoveTowards(transform.position, target.position, velocidade * Time.deltaTime);
         transform.position = movimento;
     }

@@ -38,7 +38,7 @@ public class EnemySpawner : MonoBehaviour
 
     void SpawnInimigo()
     {
-        Instantiate(enemyPrefab);
+        Instantiate(enemyPrefab, transform);
         enemyPrefab.position = transform.position;
         float intervalo = Random.Range(intervaloSpawn / 2, intervaloSpawn*2);
         Invoke("SpawnInimigo", intervaloSpawn);
